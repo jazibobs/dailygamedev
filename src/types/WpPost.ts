@@ -7,8 +7,9 @@ export default interface WpPost {
     rendered: string
   },
   _embedded: {
-    'wp:featuredmedia': [
-      source_url: string
-    ]
-  }
+    'wp:featuredmedia': Array<{
+      source_url: string;
+      alt_text: string;
+    }>;
+  };
 }
