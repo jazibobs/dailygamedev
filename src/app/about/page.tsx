@@ -1,4 +1,3 @@
-import Image from "next/image"
 import WpPost from "@/types/WpPost";
 
 export default async function PostList() {
@@ -8,7 +7,7 @@ export default async function PostList() {
     <div className="bg-white my-4 md:my-16 mx-auto max-w-screen-lg p-4 md:p-16">
       {posts.map((post: WpPost) => (
         <>
-        <strong>{post.title.rendered}</strong>
+        <strong key={post.id}>{post.title.rendered}</strong>
         <div className="prose prose-neutral" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
         </>
       ))}
