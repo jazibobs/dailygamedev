@@ -5,7 +5,7 @@ export default async function PostList() {
   const data = await fetch('https://dailydev.gameful.dev/wp-json/wp/v2/posts?_embed&order=asc')
   const posts = await data.json()
   return (
-    <ul className="max-w-screen-2xl m-auto p-4 md:px-16 md:py-16 items-start flex flex-col md:flex-row gap-8">
+    <ul className="max-w-screen-2xl m-auto p-4 md:px-16 md:py-16 items-start flex flex-col md:flex-row md:flex-wrap gap-8">
       {posts.map((post: WpPost) => (
         <li key={post.id} className="bg-zinc-900 text-white w-full md:w-1/2 lg:w-1/4 shadow-lg">
           <Image className="w-full" src={post._embedded['wp:featuredmedia'][0].source_url} alt={post._embedded['wp:featuredmedia'][0].alt_text} width={800} height={800}/>
